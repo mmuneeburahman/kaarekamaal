@@ -1,38 +1,3 @@
 <h1>New Case</h1>
 
-<%= form_with model: @case do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-    <% @case.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-  <div>
-    <%= form.label :type %><br>
-    <%= form.select :desired_attribute, ['Medical', 'Education', 'Marriage']%>
-    <% @case.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-
-  <div>
-    <%= form.label :location %><br>
-    <%= form.text_field :location %><br>
-    <% @case.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-  <div>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %><br>
-    <% @case.errors.full_messages_for(:body).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<%= render 'form'%>

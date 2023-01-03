@@ -22,6 +22,22 @@ class CasesController < ApplicationController
           end
     end
 
+    def edit
+      @user = User.find(current_user.id)
+      @case = @user.cases.find(params[:id])
+    end
+
+    def update
+      # @user = User.find(current_user.id)
+      @case = Case.find(params[:id])
+      # @article = Article.find(params[:id])
+
+      if @case.update(case_params)
+        redirect_to case_path
+      else
+        render :edit, status: :unprocessable_entity
+      end
+    end
     private
     def case_params
       params.require(:case).permit(:title, :type, :location, :description)
