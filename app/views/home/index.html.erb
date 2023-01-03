@@ -1,1 +1,11 @@
 <h1>Active Cases</h1>
+
+<ul>
+  <% @cases.each do |c| %>
+    <li>
+      <a href="/case/<%= c.id %>">
+        <%= c.title %>
+      </a>
+    </li>
+  <% end %>
+</ul>
