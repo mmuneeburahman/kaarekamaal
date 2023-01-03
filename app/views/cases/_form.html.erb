@@ -30,7 +30,8 @@
       <div><%= message %></div>
     <% end %>
   </div>
-
+    
+  <%= form.hidden_field :up_votes, :value => 0 %>
   <div>
     <%= form.submit %>
   </div>

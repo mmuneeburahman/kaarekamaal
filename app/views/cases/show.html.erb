@@ -1,11 +1,23 @@
 <h2>Title: <%= @case.title %></h2>
+<%if @case.is_verified%>
+<h5>Verified Case</h5>
+<%end%>
 <h6>Description: </h6>
 <p><%= @case.description %></p>
 
-<% if user_signed_in? && @case.user_id == current_user.id%>
-<ul>
-<%= link_to "Edit", edit_case_path(@case) %>
-</ul>
+<% if user_signed_in? %>
+        <ul>
+        <% if  @case.user_id == current_user.id %>
+            <%= link_to "Edit", edit_case_path(@case) %>
+            <%= link_to "Destroy", case_path(@case), data: {
+                                turbo_method: :delete} %>
+        <%end%>
+        <% if current_user.is_member and not @case.is_verified%>
+        <a href="/verify/<%= @case.id %>">verify</a>
+        <%end%>
+        <%# <%= link_to "Up Vote", edit_case_path(@case) %> 
+        </ul>
+    
 <% end %>
 
 

@@ -38,12 +38,24 @@ class CasesController < ApplicationController
       end
     end
 
+    def destroy
+      @case = Case.find(params[:id])
+      @case.destroy
+  
+      redirect_to root_path, status: :see_other
+    end
+
     def close_case
       Case.close_case(params[:id])
       redirect_to cases_path
     end
+
+    def verify_case
+      Case.verify_case(params[:id])
+      redirect_to root_path
+    end
     private
     def case_params
-      params.require(:case).permit(:title, :type, :location, :description)
+      params.require(:case).permit(:title, :type, :location, :description, :up_votes)
     end
 end
