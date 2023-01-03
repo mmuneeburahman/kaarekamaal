@@ -1,13 +1,17 @@
-<h1>New Member</h1>
-<%= @user.firstname%>
+<h3>Really interested to become a member of this organization</h3>
+<p><b>PLEASE NOTE: </b>YOU HAVE TO VERIFY ATLEAST 1 CASE A MONTH TO REMAIN A MEMBER<p>
+<h3><%= @user.firstname%></h3>
 
 <%= form_with model: @user do |form| %>
+
+  <%= form.hidden_field :is_member, :value => true %>
   <div>
-    <%= form.label :cnic %><br>
+    <%= form.label :cnic %><br />
     <%= form.text_field :cnic %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <p> Are you sure to become a member<p>
+    <%= form.submit%>
   </div>
 <% end %>

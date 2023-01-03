@@ -1,6 +1,7 @@
 class CasesController < ApplicationController
     before_action :authenticate_user!, only: [:new]
     def index
+      @cases = current_user.cases
     end
 
     def show
@@ -28,15 +29,18 @@ class CasesController < ApplicationController
     end
 
     def update
-      # @user = User.find(current_user.id)
       @case = Case.find(params[:id])
-      # @article = Article.find(params[:id])
 
       if @case.update(case_params)
         redirect_to case_path
       else
         render :edit, status: :unprocessable_entity
       end
+    end
+
+    def close_case
+      Case.close_case(params[:id])
+      redirect_to cases_path
     end
     private
     def case_params

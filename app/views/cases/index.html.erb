@@ -1,0 +1,49 @@
+<h1>My Cases</h1>
+<h3>Open Cases</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <%# <th scope="col">#</th> %>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Close</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @cases.each do |c| %>
+  <% if not c.is_closed%>
+    <tr>
+      <%# <th scope="row">1</th> %>
+      <td><a href="/cases/<%= c.id %>"><%= c.title %></td>
+      <td><%= c.description %></td>
+      <td><a href="/closes/<%= c.id %>">close</td>
+    </tr>
+<%end%>
+    <%end%>
+  </tbody>
+</table>
+
+<h3>Closed Cases</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <%# <th scope="col">#</th> %>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Deadline</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  <% @cases.each do |c| %>
+  <% if c.is_closed%>
+    <tr>
+      <%# <th scope="row">1</th> %>
+      <td><a href="/cases/<%= c.id %>"><%= c.title %></td>
+      <td><%= c.description %></td>
+      <td><%= c.deadline%></td>
+    </tr>
+<%end%>
+    <%end%>
+  </tbody>
+</table>
