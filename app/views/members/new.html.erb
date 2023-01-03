@@ -1,0 +1,12 @@
+<h1>New Member</h1>
+<%= @user.firstname%>
+<%= form_with model: @user do |form| %>
+  <div>
+    <%= form.label :cnic %><br>
+    <%= form.text_field :cnic %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
