@@ -1,10 +1,23 @@
 <h1>Active Cases</h1>
 
-<ul>
+<table class="table">
+  <thead>
+    <tr>
+      <%# <th scope="col">#</th> %>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Deadline</th>
+    </tr>
+  </thead>
+  <tbody>
   <% @cases.each do |c| %>
-    <li>
-      <a href="/cases/<%= c.id %>"><%= c.title %>
-      </a>
-    </li>
-  <% end %>
-</ul>
+    <tr>
+      <%# <th scope="row">1</th> %>
+      <td><a href="/cases/<%= c.id %>"><%= c.title %></td>
+      <td><%= c.description %></td>
+      <td><%= c.deadline %></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+
