@@ -1,0 +1,11 @@
+<h2>Title: <%= @case.title %></h2>
+<h6>Description: </h6>
+<p><%= @case.description %></p>
+
+<% if user_signed_in? && @case.user_id == current_user.id%>
+<ul>
+<%= link_to "Edit", edit_case_path(@case) %>
+</ul>
+<% end %>
+
+

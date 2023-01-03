@@ -3,8 +3,7 @@
 <ul>
   <% @cases.each do |c| %>
     <li>
-      <a href="/case/<%= c.id %>">
-        <%= c.title %>
+      <a href="/cases/<%= c.id %>"><%= c.title %>
       </a>
     </li>
   <% end %>

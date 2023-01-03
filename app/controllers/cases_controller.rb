@@ -3,6 +3,10 @@ class CasesController < ApplicationController
     def index
     end
 
+    def show
+        @case = Case.find(params[:id])
+    end
+
     def new
         @user = User.find(current_user.id)
         @case = @user.cases.new
