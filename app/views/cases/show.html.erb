@@ -30,7 +30,11 @@
             <%= comment.body %>
         </p>
         <%if comment.user_id == current_user.id%>
-        <p>Delete</p>
+        <%# <p>Delete</p> %>
+        <%= link_to "Delete Comment Comment", [comment.case, comment], data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+                }, class: 'btn btn-outline-dark btn-sm' %>
         <% end %>
         <% end %>
         
