@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_04_121207) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_04_131431) do
   create_table "cases", force: :cascade do |t|
     t.string "title"
     t.integer "type"
@@ -36,6 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_04_121207) do
     t.integer "case_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["case_id"], name: "index_comments_on_case_id"
   end
 

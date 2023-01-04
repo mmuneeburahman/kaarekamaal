@@ -18,7 +18,7 @@
         <%end%>
         </ul>
         
-        <h6>Comments</h6>
+        <h5>Comments</h5>
         <% @case.comments.each do |comment| %>
         <p>
             <strong>Commenter:</strong>
@@ -29,9 +29,13 @@
             <strong>Comment:</strong>
             <%= comment.body %>
         </p>
+        <%if comment.user_id == current_user.id%>
+        <p>Delete</p>
+        <% end %>
         <% end %>
         
-        <h6>Add a comment:</h6>
+        
+        <h5>Add a comment:</h5>
         <%= form_with model: [ @case, @case.comments.build ] do |form| %>
         <p>
             <%= form.label :commenter %><br>
@@ -47,6 +51,8 @@
             <%= form.label :body %><br>
             <%= form.text_area :body %>
         </p>
+        <%= form.hidden_field :user_id, :value => current_user.id %>
+
         <p>
             <%= form.submit %>
         </p>
