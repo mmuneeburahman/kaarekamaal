@@ -14,9 +14,9 @@
   <% if not c.is_closed%>
     <tr>
       <%# <th scope="row">1</th> %>
-      <td><a href="/cases/<%= c.id %>"><%= c.title %></td>
+      <td><a href="/cases/<%= c.id %>"><%= c.title %></a></td>
       <td><%= c.description %></td>
-      <td><a href="/closes/<%= c.id %>">close</td>
+      <td><a href="/closes/<%= c.id %>"><button class="btn btn-sm btn-outline-dark">close</button></a></td>
     </tr>
 <%end%>
     <%end%>
