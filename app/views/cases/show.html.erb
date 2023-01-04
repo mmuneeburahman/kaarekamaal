@@ -5,6 +5,9 @@
 <h6>Description: </h6>
 <p><%= @case.description %></p>
 
+<h6>Deadline: </h6>
+<p><%= @case.deadline %></p>
+
 <% if user_signed_in? %>
         <ul>
         <% if  @case.user_id == current_user.id %>

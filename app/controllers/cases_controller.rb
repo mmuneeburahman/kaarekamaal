@@ -56,6 +56,6 @@ class CasesController < ApplicationController
     end
     private
     def case_params
-      params.require(:case).permit(:title, :type, :location, :description, :up_votes)
+      params.require(:case).permit(:title, :type, :location, :description, :up_votes, :deadline)
     end
 end
