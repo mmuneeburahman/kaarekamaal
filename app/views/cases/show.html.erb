@@ -11,9 +11,9 @@
 <% if user_signed_in? %>
         <ul>
         <% if  @case.user_id == current_user.id %>
-            <%= link_to "Edit", edit_case_path(@case) %>
+            <%= link_to "Edit", edit_case_path(@case), class: "btn btn-sm btn-outline-dark"%>
             <%= link_to "Destroy", case_path(@case), data: {
-                                turbo_method: :delete} %>
+                                turbo_method: :delete}, class: "btn btn-sm btn-outline-dark" %>
         <%end%>
 
         <% if current_user.is_member and not @case.is_verified%>
