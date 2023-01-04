@@ -10,6 +10,11 @@
     <%= form.text_field :cnic %>
   </div>
 
+   <div class="field">
+    <%= form.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= form.password_field :current_password%>
+  </div>
+
   <div>
     <p> Are you sure to become a member<p>
     <%= form.submit%>

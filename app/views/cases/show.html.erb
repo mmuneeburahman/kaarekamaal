@@ -12,12 +12,48 @@
             <%= link_to "Destroy", case_path(@case), data: {
                                 turbo_method: :delete} %>
         <%end%>
+
         <% if current_user.is_member and not @case.is_verified%>
-        <a href="/verify/<%= @case.id %>">verify</a>
+            <a href="/verify/<%= @case.id %>">verify</a>
         <%end%>
-        <%# <%= link_to "Up Vote", edit_case_path(@case) %> 
         </ul>
+        
+        <h6>Comments</h6>
+        <% @case.comments.each do |comment| %>
+        <p>
+            <strong>Commenter:</strong>
+            <%= comment.commenter %>
+        </p>
+
+        <p>
+            <strong>Comment:</strong>
+            <%= comment.body %>
+        </p>
+        <% end %>
+        
+        <h6>Add a comment:</h6>
+        <%= form_with model: [ @case, @case.comments.build ] do |form| %>
+        <p>
+            <%= form.label :commenter %><br>
+            <%
+            user_name = current_user.firstname
+            if current_user.lastname
+                user_name = user_name + " " + current_user.lastname
+            end
+            %>
+            <%= form.text_field :commenter, :value => user_name, :readonly => true  %>
+        </p>
+        <p>
+            <%= form.label :body %><br>
+            <%= form.text_area :body %>
+        </p>
+        <p>
+            <%= form.submit %>
+        </p>
+        <% end %>
     
 <% end %>
+
+
 
 
