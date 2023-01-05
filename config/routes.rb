@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   resources :cases do
     resources :comments
   end
-  
+
   resources "members"
   get 'closes/:id', to: 'cases#close_case'
   get 'verify/:id', to: 'cases#verify_case'
+  get 'events', to: 'home#event'
 end

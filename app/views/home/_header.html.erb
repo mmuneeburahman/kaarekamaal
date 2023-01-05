@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="/">
-      <%= image_tag("kaar-e-kamal-1.png", :alt => "rss feed", style: 'height:auto;width:75px;') %>
+      <%= image_tag("kaar-e-kamal-1.png", :alt => "rss feed", style: 'height:auto;width:100px;') %>
       
       </a>
       <%# <img src="/images/kaar-e-kamal-1.png" alt="rss feed" /> %>
@@ -28,6 +28,7 @@
         </li>
       
         <% else %>
+            <li><%= link_to 'Events', events_path, class: 'nav-link' %></li>
             <li><%= link_to 'Register', new_user_registration_path, class: 'nav-link' %></li>
             <li><%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %></li>
         <% end %>
